@@ -15,7 +15,7 @@ red.bot({
       : msg.key.remoteJid.split('@')[0];
 
     // Only owners can use this
-    if (!config.OWNERS.includes(sender)) {
+    if (!config.OWNER.includes(sender)) {
       return await sock.sendMessage(
         msg.key.remoteJid,
         { text: '❌ Only bot owners can use this command' },

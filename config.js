@@ -10,7 +10,7 @@ const config = {
   PREFIX: process.env.PREFIX || ".",
 
   // Owner Configuration
-  OWNERS: (process.env.OWNERS || "27675859928")
+  OWNER: (process.env.OWNER || "27675859928")
     .split(',')
     .map(n => n.trim()),
 
