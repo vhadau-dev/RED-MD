@@ -1,0 +1,35 @@
+{
+  "120363421367069062@g.us": {
+    "jid": "120363421367069062@g.us",
+    "antilink": false,
+    "welcome": true,
+    "goodbye": true,
+    "welcomeMessage": "Welcome @user to @group!",
+    "goodbyeMessage": "Goodbye @user!",
+    "mute": false,
+    "locked": false,
+    "rules": "No rules set yet."
+  },
+  "120363426798585681@g.us": {
+    "jid": "120363426798585681@g.us",
+    "antilink": false,
+    "welcome": true,
+    "goodbye": true,
+    "welcomeMessage": "Welcome @user to @group!",
+    "goodbyeMessage": "Goodbye @user!",
+    "mute": false,
+    "locked": false,
+    "rules": "No rules set yet."
+  },
+  "120363400061711508@g.us": {
+    "jid": "120363400061711508@g.us",
+    "antilink": true,
+    "welcome": true,
+    "goodbye": true,
+    "welcomeMessage": "Welcome @user to @group!",
+    "goodbyeMessage": "Goodbye @user!",
+    "mute": false,
+    "locked": false,
+    "rules": "hy"
+  }
+}

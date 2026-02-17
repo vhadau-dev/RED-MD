@@ -1,0 +1,30 @@
+{
+  "name": "red-md",
+  "version": "1.0.0",
+  "description": "A powerful WhatsApp bot that can do almost anything",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "red-md"
+  ],
+  "author": "vhadau_t (vhadau-dev)",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "mongoose": "^8.0.0",
+    "dotenv": "^16.3.1",
+    "pino": "^8.16.2",
+    "qrcode-terminal": "^0.12.0",
+    "axios": "^1.6.0",
+    "chalk": "^5.3.0",
+    "moment-timezone": "^0.5.43",
+    "node-cache": "^5.1.2"
+  }
+}
