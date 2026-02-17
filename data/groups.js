@@ -1,56 +1,46 @@
 import fs from 'fs';
 import path from 'path';
 
-// Path to the JSON file
-const filePath = path.join(new URL('.', import.meta.url).pathname, 'group.json');
+const __dirname = path.resolve();
+const jsonPath = path.join(__dirname, 'data', 'group.json');
 
-// Load existing data or initialize empty object
 let groups = {};
-if (fs.existsSync(filePath)) {
-  try {
-    const data = fs.readFileSync(filePath, 'utf-8');
-    groups = JSON.parse(data);
-  } catch (err) {
-    console.error('❌ Failed to parse group.json, initializing empty object', err);
-    groups = {};
-  }
+
+if (fs.existsSync(jsonPath)) {
+    try {
+        groups = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    } catch (e) {
+        groups = {};
+    }
 }
 
-// Save function
-function saveGroups() {
-  try {
-    fs.writeFileSync(filePath, JSON.stringify(groups, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('❌ Failed to save group.json', err);
-  }
+export function saveGroups() {
+    fs.writeFileSync(jsonPath, JSON.stringify(groups, null, 2));
 }
 
-// Get or create group
-function getGroup(jid) {
-  if (!groups[jid]) {
-    groups[jid] = {
-      jid,
-      antilink: false,
-      welcome: true,
-      goodbye: true,
-      welcomeMessage: "Welcome @user to @group!",
-      goodbyeMessage: "Goodbye @user!",
-      mute: false,
-      locked: false,
-      rules: "No rules set yet."
-    };
+export function getGroup(jid) {
+    if (!groups[jid]) {
+        groups[jid] = {
+            jid,
+            antilink: false,
+            welcome: true,
+            goodbye: true,
+            welcomeMessage: "Welcome @user to @group!",
+            goodbyeMessage: "Goodbye @user!",
+            mute: false,
+            locked: false,
+            rules: "No rules set yet."
+        };
+        saveGroups();
+    }
+    return groups[jid];
+}
+
+export function updateGroup(jid, settings) {
+    const group = getGroup(jid);
+    Object.assign(group, settings);
     saveGroups();
-  }
-  return groups[jid];
+    return group;
 }
 
-// Update group settings
-function updateGroup(jid, settings) {
-  const group = getGroup(jid);
-  Object.assign(group, settings);
-  saveGroups();
-  return group;
-}
-
-// Export
-export { groups, getGroup, updateGroup };
+export { groups };
